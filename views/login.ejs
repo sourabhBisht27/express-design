@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <%- include('./partials/header') %>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div
+      style="min-height: 100vh"
+      class="container d-flex justify-content-center align-items-center"
+    >
+      <form style="max-width: 20rem" id="loginForm">
+        <input
+          name="email"
+          type="email"
+          class="form-control mb-3"
+          placeholder="Email"
+        />
+        <input
+          name="password"
+          type="password"
+          class="form-control mb-3"
+          placeholder="Password"
+        />
+        <a class="text-center" href="/users/signup"
+          >Not registered ? Sign up now !</a
+        >
+        <div class="d-flex justify-content-center align-items-center">
+          <div
+            id="loginFormIndicator"
+            style="display: none"
+            class="spinner-border"
+            role="status"
+          >
+            <span class="sr-only">Loading...</span>
+          </div>
+          <button id="loginFormBtn" class="btn btn-primary" type="submit">
+            Login
+          </button>
+        </div>
+        <div
+          style="display: none"
+          id="message"
+          class="alert alert-danger"
+          role="alert"
+        ></div>
+      </form>
+    </div>
+    <script src="/javascripts/login.js"></script>
+  </body>
+</html>

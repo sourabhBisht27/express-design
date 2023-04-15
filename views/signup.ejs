@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <%- include('./partials/header') %>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div
+      style="min-height: 100vh"
+      class="container d-flex justify-content-center align-items-center"
+    >
+      <form style="max-width: 20rem" action="/users/signup" method="post">
+        <input
+          name="email"
+          type="email"
+          class="form-control mb-3"
+          placeholder="Email"
+        />
+        <input
+          name="password"
+          type="password"
+          class="form-control mb-3"
+          placeholder="Password"
+        />
+        <input
+          name="name"
+          type="text"
+          class="form-control mb-3"
+          placeholder="Name"
+        />
+        <a class="text-center" href="/users/login">Already registered ? Login Now!</a>
+
+        <% if(message.isError === true){ %>
+        <div class="alert alert-danger" role="alert"><%= message.data %></div>
+        <% } else if(message.isError === false){ %>
+        <div class="alert alert-success" role="alert"><%= message.data %></div>
+        <% } else { }%>
+        <div class="d-flex justify-content-center align-items-center">
+          <button class="btn btn-primary" type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
