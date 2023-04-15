@@ -6,7 +6,24 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <%- include('./partials/main-header') %>
-    <%- include('./partials/main-hero') %>
+    <%- include('./partials/main-header') %> <%- include('./partials/main-hero')
+    %>
+    <div
+      class="d-flex justify-content-center align-items-center gap-3 text-white"
+    >
+      <div
+        class="bg-success card text-center"
+        style="width: 18rem; font-size: 2rem"
+      >
+        <div class="text-align-center card-body">
+          <%=dashboard.todosCompletedCount%>
+        </div>
+      </div>
+      <div class="bg-danger card" style="width: 18rem; font-size: 2rem">
+        <div class="card-body text-center">
+          <%=dashboard.todosNotCompletedCount%>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

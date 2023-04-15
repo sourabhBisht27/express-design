@@ -22,11 +22,11 @@ userRouter.post("/login", async function (req, res, next) {
         .status(404)
         .json({ status: false, message: "Password incorrect" });
     }
-
+    req.session.user = { email: user.email, name: user.name };
     return res.status(200).json({
       status: true,
       message: "Authentication successfull",
-      user: { email: user.email, name: user.name },
+      user: { email: user.email, name: user.name, id: user.id },
     });
   } catch (error) {
     return res.status(404).json({ status: false, message: "Error occured" });
@@ -50,7 +50,6 @@ userRouter.post("/signup", async function (req, res, next) {
       message: { isError: false, data: "User created login to continue" },
     });
   } catch (error) {
-    console.log(error);
     return res.render("signup", {
       title: "Signup - Todos",
       message: { isError: false, data: "Some error occured !" },
