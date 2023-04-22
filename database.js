@@ -1,14 +1,10 @@
 const { Sequelize } = require("sequelize");
-const sequelize = new Sequelize(
-  "express_design",
-  "zeus",
-  "BETAyou@123",
-  {
-    dialect: "mariadb",
-    host: "127.0.0.1",
-    sync: true,
-  }
-);
+const { DATABASE, USERNAME, PASSWORD, HOST } = require("./config");
+const sequelize = new Sequelize(DATABASE, USERNAME, PASSWORD, {
+  dialect: "mariadb",
+  host: HOST,
+  sync: true,
+});
 const connectDatabase = async () => {
   try {
     await sequelize.sync();

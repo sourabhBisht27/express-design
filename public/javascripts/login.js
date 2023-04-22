@@ -20,7 +20,7 @@ loginForm.onsubmit = async (e) => {
     ).json();
     if (data.status) {
       localStorage.setItem("user", JSON.stringify(data.user));
-      window.location.replace("/default");
+      window.location.replace("/");
     } else {
       message.innerText = data.message;
       message.style.display = "block";

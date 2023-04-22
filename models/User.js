@@ -7,7 +7,7 @@ const User = sequelize.define("User", {
   },
   password: {
     type: DataTypes.STRING,
-    allowNull: false, // allowNull defaults to true
+    allowNull: false,
   },
   email: {
     type: DataTypes.STRING,
